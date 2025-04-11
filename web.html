@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CleverTap Video Tracker</title>
+
+
+  <script type="text/javascript">
+    var clevertap = {event:[], profile:[], account:[], onUserLogin:[], notifications:[]};
+    clevertap.account.push({"id": "464-878-R96Z"}); 
+    clevertap.region = "eu1"; 
+    var wzrk = document.createElement('script');
+    wzrk.type = 'text/javascript';
+    wzrk.async = true;
+    wzrk.src = 'https://d2r1yp2w7bby2u.cloudfront.net/js/clevertap.min.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wzrk, s);
+  </script>
+</head>
+<body>
+  <h1>Welcome to the Video Page</h1>
+
+  <video id="myVideo" width="600" controls>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const video = document.getElementById('myVideo');
+
+    video.addEventListener('play', function() {
+      clevertap.event.push("Video Played", {
+        videoName: "Sample Video",
+        timestamp: new Date().toISOString()
+      });
+    });
+  </script>
+</body>
+</html>
